@@ -1,4 +1,7 @@
 # tiny-chess-01
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/forcf128/tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/forcf128/tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 A 4 KB Python chess engine for make.fun tiny-chess-01: 0x88 board, alpha-beta
 with transposition table, killer moves, late-move reductions and quiescence
 search, under a fixed node budget per move. MIT licensed.
@@ -14,20 +17,9 @@ Pieces: 1 pawn, 2 knight, 3 bishop, 4 rook, 5 queen, 6 king.
 White pieces are 1-6, black pieces are 9-14.
 Move: 19 bits, from (7), to (7), promotion (3), flags (2).
 Flags: bit 17 capture, bit 18 en passant, bit 19 castling.
-Move lists are kept per colour for fast generation.
 Pawn moves: single push, double push, captures, promotions.
-Promotions offer queen, rook, bishop, knight, in that order.
-Sliders walk their rays until blocked or capturing.
-Knights and kings use fixed offset tables.
-Castling checks empty squares and that none are attacked.
-Legality: make the move, then test if the king is attacked.
-Unmake restores every field from a saved tuple.
 Eval: material plus piece-square tables, king tapered.
-King safety uses a middle-game and an endgame table.
-Phase is the smaller of non-pawn material and 6400.
 Search: alpha-beta with a transposition table.
-Table stores depth, score, flag and best move per hash.
-Flags: 1 exact, 2 lower bound, 3 upper bound.
 Killer moves: two per ply, tried before quiet moves.
 Late moves are searched shallow first, then full depth.
 Quiescence covers captures and replies while in check.
